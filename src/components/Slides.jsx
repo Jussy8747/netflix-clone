@@ -47,7 +47,7 @@ else if (side === 'left' && slideNum > 0)  setSlideNum((prev)=> prev-1)
 ) : (
   
   <div className=''>
-  <h1 className='text-white font-bold ml-2 sm:ml-16 p-1 sm:p-2 pb-4 text-xl sm:text-2xl'>{title}</h1>
+  <h1 className='text-white font-bold  ml-2 sm:ml-16 p-2 pb-4 text-xl sm:text-2xl'>{title}</h1>
   <div className='flex justify-center group'>
   {showLeftSlide && <div className='hidden sm:flex justify-center items-center slideHanler left-0 
   group-hover:text-white text-8xl 

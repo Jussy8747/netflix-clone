@@ -83,13 +83,20 @@ signOut(auth)
     fixed flex text-white justify-between ease-in transition-all del
     p-5`}>
     <div className="flex gap-2">
-      <div className="mr-10 fon"><Link to='/mainpage' className="
+      <div className="mr-10 hidden sm:block"><Link to='/mainpage' className="
       text-3xl font-bold
       text">NETFLIX</Link></div>
-      <div>
+
+<Link to='/mainpage' className="sm:hidden">
+    <img src="https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456"
+     alt="" className="w-20 -ml-4" />
+</Link>
+
+
+      <div className="hidden sm:block">
         <ul className="flex gap-3 items-center mt-2 text-lg">
           <li className={Active('/mainpage')}><Link to='/mainpage'
-          className="hover:text-gray-400 hover:duration-300 ease-in
+          className="hiddenhover:text-gray-400 hover:duration-300 ease-in
            delay-100"
           >Home</Link></li>
 
@@ -135,7 +142,7 @@ signOut(auth)
      )}
       
 
-     <div className="text-xl">
+     <div className="hidden sm:block text-xl">
       <Link className="hover:text-gray-400 hover:duration-300 ease-in
            delay-100" to='/kids' >Kids</Link>
      </div>
@@ -175,11 +182,33 @@ signOut(auth)
         
       </div>
       </div>
-     
-   
-     </div>
       </div>
+     </div>
 
+     <div className="sm:hidden mt-24 ml-5">
+        <ul className="flex gap-10 items-center mt-2 font-bold text-white text-2xl">
+          
+
+          <li className={Active('/tvshow')}><Link to='/tvshows'
+          className="hover:text-gray-400 hover:duration-300 ease-in
+           delay-100"
+          >TV Shows</Link></li>
+
+          <li className={Active('/movies')}><Link to='/movies'
+          className="hover:text-gray-400 hover:duration-300 ease-in
+           delay-100"
+          >Movies</Link ></li>
+
+          <li className={Active('/mylist')}><Link to='/mylist'
+          className="hover:text-gray-400 hover:duration-300 ease-in
+           delay-100"
+          >My List</Link></li>
+
+         
+        </ul>
+      </div>
+     
+      
     
     </nav>  )
 }
