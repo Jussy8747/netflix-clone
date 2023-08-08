@@ -1,0 +1,23 @@
+
+
+
+
+.input{
+    background-color: red;
+   
+}
+@media (min-width: 768px) {
+    .bg{
+        background-image:
+        linear-gradient(to right, rgba(0, 0, 0, 0.50), rgba(203,220,203, 0.0)),
+        url('https://raw.githubusercontent.com/thatanjan/netflix-clone-yt/youtube/media//banner.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+       
+    }
+
+    .signin-div{
+        width: 500px;
+        background-color: rgba(0, 0, 0, 0.60);
+    }
+}

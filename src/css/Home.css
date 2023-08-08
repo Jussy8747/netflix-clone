@@ -1,0 +1,67 @@
+
+
+.home{
+    background-image:
+    linear-gradient(to right, rgba(1, 12, 48, 0.95), rgba(203,220,203, 0.0)),
+    url('https://raw.githubusercontent.com/thatanjan/netflix-clone-yt/youtube/media//banner.jpg');
+    background-repeat: no-repeat;
+    height: 400px;
+    background-size: cover;
+    color: white;
+    padding: 20px;
+}
+
+.link{
+    background-color: red;
+}
+.text{
+    color: red;
+    
+}
+
+
+.button{
+   background-color: red;
+}
+
+.custom-pagination .swiper-pagination {
+    display: none;
+  }
+
+  .banner{
+    height: 580px;
+  }
+
+  .faded{
+background-image: linear-gradient(
+    180deg,
+    transparent,
+    rgba(39,39,39,.61),
+    #000
+);
+height: 7.4rem;
+margin-top: 90px;
+  }
+
+
+  @media (max-width: 768px) {
+    .home {
+        height: auto;
+        padding: 10px;
+    }
+
+    .banner {
+        height: 300px;
+    }
+
+    .faded {
+        margin-top: 60px;
+        height: 5rem;
+    }
+
+    /* Add more responsive adjustments here */
+}
+
+
+
+
