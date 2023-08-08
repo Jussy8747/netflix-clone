@@ -59,8 +59,8 @@ return  loading ? <Loading/> :
             <h1 className='text p-4 text-2xl sm:text-5xl'>NETFLIX</h1>
         </div>
 
-        <div className='signin-div 
-        sm:pl-12 pl-4 py-8 h-auto m-auto
+        <div className='signin-div  pl-7
+        sm:pl-12 py-8 h-auto m-auto
         '>
             <h1 className='text-white font-bold text-4xl my-10'>Sign In</h1>
        
@@ -87,7 +87,7 @@ return  loading ? <Loading/> :
 
         <div className='mt-10 sm:mt-16 flex sm:flex-row sm:text-2xl text-xl'>
             <p className='
-            text-gray-500 sm:mr-3
+            text-gray-500 mr-2 sm:mr-3 
             '>New to Netflix? </p>
            
                 <Link to='/' className='text-white' >Sign up now.</Link>
