@@ -70,14 +70,14 @@ const Profile = () => {
     
     : (
       
-        <div className=''>
-            <h1 className='text-3xl text-center'>Who Is Watching?</h1>
+        <div className='w-11/12'>
+            <h1 className='text-3xl text-center '>Who Is Watching?</h1>
             <div className='text-center flex flex-wrap justify-center' >
               {profiles && profiles.map(item =>(
                 <div className='flex flex-col mt-4 text-gray-500 hover:text-gray-200 ' 
                 key={item.name} >
                   <div className=' hover:bg-gray-400 sm:mx-4 mx-3 mb-2'>
-                  <img className="hover:border-2 rounded h-32 w-32 sm:h-52 sm:w-52 object-contain"
+                  <img className="hover:border-2 rounded h-28 w-28 sm:h-52 sm:w-52 object-contain"
                   src={item.img} alt="" onClick={()=>{
                     handleNav(item.name)
                     nav(`${item.name}` == 'Kids' ? '/kids' : '/mainpage')
@@ -87,11 +87,11 @@ const Profile = () => {
                 </div>
               ))}
 
-              <div className='text-gray-500 hover:text-gray-200'>
+              <div className='text-gray-200 hover:text-gray-200'>
               <div  onClick={() =>{
               setAddProfle(true)
-            }} className='hover:bg-gray-400 flex justify-center
-            items-center mt-4 mx-3 sm:mx-4 mb-2 h-32 w-32 sm:h-52 sm:w-52 '>
+            }} className='bg-gray-500 hover:bg-gray-400 flex justify-center
+            items-center mt-4 mx-3 sm:mx-4 mb-2 h-28 w-28 sm:h-52 sm:w-52 '>
               <FaPlusCircle className='w-16 h-16 object-fill'/>
             </div>
             <p className='font-medium'>Add Profile</p>

@@ -1,5 +1,5 @@
 import { useContext, useEffect} from "react"
-import { FaPlay } from "react-icons/fa"
+import { FaPlay, FaInfoCircle} from "react-icons/fa"
 import mainpageContext from "../context/MainPageContext"
 import '../css/Home.css'
 
@@ -12,7 +12,7 @@ const Banner = ({banner}) => {
 
   useEffect(()=>{
     fetchMovie(banner)
-  }, [banner])
+  }, [])
 
   function truncateString(str, maxLength) {
     if (str.length > maxLength) {
@@ -31,21 +31,24 @@ const Banner = ({banner}) => {
     }} className="object-contain banner">
 
    
-   <div className=" text-white pt-40 ml-12 ">
+   <div className="relative flex flex-col justify-end items-center h-full sm:block sm:pt-40
+    text-white ">
+
+  
+    <h1 className="hidden sm:block sm:pl-12 text-3xl font-bold text-center sm:text-left">
+      {movie?.title || movie?.name || movie?.original_name}
+    </h1>
 
     
-    <h1 className="
-    text-3xl font-bold
-    ">{movie?.title || movie?.name || movie?.original_name}</h1>
 
 
-    <div className="w-96 my-3">
+    <div className="hidden sm:block sm:ml-12 w-96 my-3">
     <h1 className="
     text-xl 
     ">{truncateString(`${movie?.overview}`, 150)}</h1>
     </div>
 
-    <div className="flex my-3">
+    <div className="hidden sm:flex sm:ml-12">
         <button className="bg-white w-32 text-black 
         items-center flex justify-center text-xl h-12
         rounded gap-3 hover:bg-gray-300
@@ -55,10 +58,33 @@ const Banner = ({banner}) => {
         items-center flex justify-center text-xl h-12 font-bold
         rounded gap-3 ml-3">My List</button>
     </div>
+
+    <div className="flex flex-col sm:hidden absolute bottom-5 sm:ml-12">
+      <div className="mb-3">
+      <h1 className="text-2xl font-bold text-center ">
+      {movie?.title || movie?.name || movie?.original_name}
+    </h1>
+      </div>
+      <div className="flex gap-3">
+      <div onClick={addToList} className=" bg-transparent text-white text-xl h-12
+      rounded  mr-5">
+          <h1 className="text-center text-4xl">+</h1> 
+          <p>My list</p></div>
+      <button className="bg-white w-32 text-black 
+        items-center flex justify-center text-xl h-12
+        rounded  hover:bg-gray-300 mt-4
+        hover:text-black"><FaPlay/> Play</button>
+        <div onClick={addToList} className=" bg-transparent text-white text-xl h-12
+      rounded ml-5 mt-4">
+          <h1 className="ml-1 text-2xl"><FaInfoCircle/></h1> 
+          <p>Info</p></div>
+      </div>
+        
+    </div>
   
-  
+    <div className="w-screen faded"></div>
 </div>
-<div className="w-screen faded"></div>
+
    </header>
     
   )

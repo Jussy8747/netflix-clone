@@ -88,8 +88,9 @@ signOut(auth)
       text">NETFLIX</Link></div>
 
 <Link to='/mainpage' className="sm:hidden">
-    <img src="https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456"
-     alt="" className="w-20 -ml-4" />
+    {/* <img src="https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456"
+     alt="" className="w-20 -ml-4" /> */}
+     <h1 className="text-red-800 text-4xl font-extrabold">N</h1>
 </Link>
 
 
@@ -120,13 +121,13 @@ signOut(auth)
       </div>
     </div>
 
-    <div className="flex gap-5 items-center mr-11">
+    <div className="flex gap-10 items-center">
 
      {showSearch && (<div>
     <div>
-      <input type="text" placeholder=' title, people, genres
-        '  className="bg-black border border-white
-      w-72 h-9 p-2 pl-10 relative text-lg font-bold" value={searchText}
+      <input type="text" placeholder='Search for a show, movie.'
+      className="bg-gray-600 w-screen h-10 p-2 pl-10 relative text-lg 
+      font-bold focus:outline-none" value={searchText}
        onChange={handleChange}/>
   </div>
       
@@ -148,14 +149,13 @@ signOut(auth)
      </div>
       
       <div className="relative group">
-      <div>
-      <button>
-        <img className="
-        w-10 h-10 rounded
-        " src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="" />
-    </button>
-      </div>
-      <div className="bg-black border-spacing-4 w-60 rounded h-auto hidden absolute right-0 group-hover:block">
+    
+      <Link >
+        <img className="w-10 h-10 rounded mr-2" 
+        src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="" />
+    </Link>
+    
+      <div className="bg-black border-spacing-4 w-60 rounded h-auto hidden absolute right-0 sm:group-hover:block">
       {profiles && (
           profiles.map(item=>(
           <div onClick={item.name !== 'Kids' ? navigate : navToKids } key={item.name} 

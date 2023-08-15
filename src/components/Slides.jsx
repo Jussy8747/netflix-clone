@@ -54,21 +54,19 @@ else if (side === 'left' && slideNum > 0)  setSlideNum((prev)=> prev-1)
   text-transparent font-light
   ' onClick={()=>handleClick('left')}> &#8249;</div>}
    
-      <div className='flex w-11/12 h-52' style={{ transform: `translateX(${slideNum * -100}%)` }}  ref={slideRef}> 
+      <div className='flex w-11/12 h-52 -ml-8' style={{ transform: `translateX(${slideNum * -100}%)` }}  ref={slideRef}> 
       
      {movieItems.map((item, index) =>{
-      
 return <img key={index} className='w-2/6 sm:w-1/5 h-44 rounded-lg shrink-0 pl-1'
 style={{loading: 'lazy'}}
 src={`https://image.tmdb.org/t/p/original/${item.backdrop_path || item.poster_path
 }`} alt="item"  />
  
    })}
-
-
-
      </div>
-     <div className='hiddin sm:flex justify-center items-center slideHanler right-0
+
+
+     <div className='hidden sm:flex justify-center items-center slideHanler right-0
        group-hover:text-white text-8xl
        text-transparent font-light z-10
      ' onClick={()=>handleClick('right')}>&#8250;</div>
