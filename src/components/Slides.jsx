@@ -46,7 +46,7 @@ else if (side === 'left' && slideNum > 0)  setSlideNum((prev)=> prev-1)
   <Loading/> 
 ) : (
   
-  <div className=''>
+  <div className='sm:mt-4'>
   <h1 className='text-white font-bold  ml-2 sm:ml-16 p-2 pb-4 text-xl sm:text-2xl'>{title}</h1>
   <div className='flex justify-center group'>
   {showLeftSlide && <div className='hidden sm:flex justify-center items-center slideHanler left-0 
@@ -54,7 +54,9 @@ else if (side === 'left' && slideNum > 0)  setSlideNum((prev)=> prev-1)
   text-transparent font-light
   ' onClick={()=>handleClick('left')}> &#8249;</div>}
    
-      <div className='flex w-11/12 h-52 -ml-8' style={{ transform: `translateX(${slideNum * -100}%)` }}  ref={slideRef}> 
+      <div className='flex w-11/12 h-52 -ml-8 overflow-x-scroll sm:overflow-x-hidden
+      no-scrollbar'
+       style={{ transform: `translateX(${slideNum * -100}%)` }}  ref={slideRef}> 
       
      {movieItems.map((item, index) =>{
 return <img key={index} className='w-2/6 sm:w-1/5 h-44 rounded-lg shrink-0 pl-1'

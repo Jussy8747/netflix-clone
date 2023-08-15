@@ -185,7 +185,7 @@ signOut(auth)
       </div>
      </div>
 
-     <div className="sm:hidden mt-24 ml-5">
+     <div className={`sm:hidden mt-16 ml-5 ${show && 'hidden'}`}>
         <ul className="flex gap-10 items-center mt-2 font-bold text-white text-2xl">
           
 
