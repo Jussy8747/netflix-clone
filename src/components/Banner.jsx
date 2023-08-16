@@ -2,12 +2,14 @@ import { useContext, useEffect} from "react"
 import { FaPlay, FaInfoCircle} from "react-icons/fa"
 import mainpageContext from "../context/MainPageContext"
 import '../css/Home.css'
+import { Link } from "react-router-dom"
 
 const Banner = ({banner}) => {
     const {
         fetchMovie,
         movie,
-        addToList
+        addToList,
+        setMovieDetails
     } = useContext(mainpageContext)
 
   useEffect(()=>{
@@ -74,10 +76,10 @@ const Banner = ({banner}) => {
         items-center flex justify-center text-xl h-12
         rounded  hover:bg-gray-300 mt-4
         hover:text-black"><FaPlay/> Play</button>
-        <div onClick={addToList} className=" bg-transparent text-white text-xl h-12
-      rounded ml-5 mt-4">
+        <Link to='/video'className=" bg-transparent text-white text-xl h-12
+      rounded ml-5 mt-4" onClick={()=>setMovieDetails(movie)} >
           <h1 className="ml-1 text-2xl"><FaInfoCircle/></h1> 
-          <p>Info</p></div>
+          <p >Info</p></Link>
       </div>
         
     </div>
