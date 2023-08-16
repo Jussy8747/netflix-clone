@@ -27,7 +27,7 @@ const [profileName, setProfileName] = useState('')
 const [mylist, setMylist] = useState([])
 const [hovermovieItem, setHovermovieItem]=useState(null)
 const [ishovered, setIshovered] = useState(false);
-
+const [movieDetails, setMovieDetails] = useState([])
 
 
 
@@ -265,7 +265,9 @@ mylist,
 ishovered,
 setIshovered,
 hovermovieItem,
-setHovermovieItem
+setHovermovieItem,
+setMovieDetails,
+movieDetails
 }}>
     {children}
 </mainpageContext.Provider>

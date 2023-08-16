@@ -10,6 +10,7 @@ import Tvshow from "./pages/Tvshow"
 import NewAndPopular from "./pages/NewAndPopular"
 import Kids from "./pages/Kids"
 import Profile from "./pages/Profile"
+import MovieInfo from "./pages/MovieInfo"
 function App() {
  
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/newandpopular" element={<NewAndPopular/>}/>
         <Route path="/kids" element={<Kids/>}/>
         <Route path="/profile" element={<Profile/>}/>
+        <Route path="/video" element={<MovieInfo/>}/>
 
       </Routes>
       

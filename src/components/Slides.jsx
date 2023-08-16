@@ -1,8 +1,9 @@
-
-import { useEffect, useRef, useState} from 'react';
+import { useContext, useEffect, useRef, useState} from 'react';
 import '../css/slides.scss'
 import axios from 'axios';
 import Loading from './Loading';
+import { Link } from 'react-router-dom';
+import mainpageContext from '../context/MainPageContext';
 
 
 const Slides = ({title, url, page}) => {
@@ -10,9 +11,9 @@ const Slides = ({title, url, page}) => {
   const [movieItems, setMovieItems] = useState([])
   const [loading, setLoading] = useState(false)
   const [showLeftSlide, setShowLeftSlide] = useState(false)
-
   const [slideNum, setSlideNum] = useState(0)
 
+  const {setMovieDetails} = useContext(mainpageContext)
 useEffect(()=>{
   setLoading(true)
   const fetchItems = async () =>{
@@ -59,11 +60,13 @@ else if (side === 'left' && slideNum > 0)  setSlideNum((prev)=> prev-1)
        style={{ transform: `translateX(${slideNum * -100}%)` }}  ref={slideRef}> 
       
      {movieItems.map((item, index) =>{
-return <img key={index} className='w-2/6 sm:w-1/5 h-44 rounded-lg shrink-0 pl-1'
+return <Link key={index}  to={`/video`}
+className='w-2/6 sm:w-1/5 h-44 rounded-lg shrink-0 pl-1' >
+ <img className='w-full sm:full h-44 '
 style={{loading: 'lazy'}}
 src={`https://image.tmdb.org/t/p/original/${item.backdrop_path || item.poster_path
-}`} alt="item"  />
- 
+}`} alt="item" onClick={()=>setMovieDetails(item)} />
+ </Link>
    })}
      </div>
 
