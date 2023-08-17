@@ -11,6 +11,7 @@ import NewAndPopular from "./pages/NewAndPopular"
 import Kids from "./pages/Kids"
 import Profile from "./pages/Profile"
 import MovieInfo from "./pages/MovieInfo"
+import ProfileData from "./pages/ProfileData"
 function App() {
  
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/kids" element={<Kids/>}/>
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/video" element={<MovieInfo/>}/>
+        <Route path="/profileData" element={<ProfileData/>}/>
 
       </Routes>
       

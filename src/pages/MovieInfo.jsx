@@ -4,10 +4,10 @@ import {useContext} from 'react'
 const MovieInfo = () => {
 
   const {movieDetails, addToList}= useContext(mainpageContext)
-console.log(movieDetails);
+
 const {title, name, backdrop_path, poster_path, original_name, first_air_date, overview} = movieDetails
   return (
-    <div className='bg-black  h-screen'>
+    <div className='bg-black  h-full'>
         <div style={{
         backgroundImage: `url("https://image.tmdb.org/t/p/original${backdrop_path || poster_path}")`,
         backgroundPosition: 'center center',
@@ -57,7 +57,7 @@ const {title, name, backdrop_path, poster_path, original_name, first_air_date, o
           </div>
         </div>
 
-        <div>
+        <div className=''>
             <p className='text-white text-lg'>{overview}</p>
         </div>
     </div>

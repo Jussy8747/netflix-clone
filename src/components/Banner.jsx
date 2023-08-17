@@ -62,7 +62,7 @@ const Banner = ({banner}) => {
     </div>
 
     <div className="flex flex-col sm:hidden absolute bottom-5 sm:ml-12">
-      <div className="mb-3">
+      <div className="mb-3 w-10/12 mx-auto">
       <h1 className="text-2xl font-bold text-center ">
       {movie?.title || movie?.name || movie?.original_name}
     </h1>

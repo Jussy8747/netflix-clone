@@ -40,7 +40,7 @@ const MainPage = () => {
       fetchTopRated: `/tv/top_rated?api_key=${API_KEY}&language=en-us`,
       fetchKdrama: `/search/tv?api_key=${API_KEY}&query=K-drama&language=ko`,
   }
-  const {searchText} = useContext(mainpageContext)
+  const {showSearch} = useContext(mainpageContext)
 
   return (
    
@@ -48,7 +48,7 @@ const MainPage = () => {
     <div className="bg-black h-full pb-4 overflow-hidden">
 
       <Navbar/>
-    {searchText !== '' ? <Search/> : (
+    {showSearch ? <Search/> : (
       <>
       <Banner banner={Request.fetchTrending}/>
 

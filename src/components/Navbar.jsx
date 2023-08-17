@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState} from "react";
 import {FaSearch} from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import mainpageContext from "../context/MainPageContext";
@@ -123,11 +123,11 @@ signOut(auth)
 
     <div className="flex gap-10 items-center">
 
-     {showSearch && (<div>
+     {showSearch && (<div className="hidden sm:block">
     <div>
       <input type="text" placeholder='Search for a show, movie.'
-      className="bg-gray-600 w-screen h-10 p-2 pl-10 relative text-lg 
-      font-bold focus:outline-none" value={searchText}
+      className="bg-gray-300 h-10 p-2 pl-10 relative text-lg 
+      font-bold focus:outline-none rounded" value={searchText}
        onChange={handleChange}/>
   </div>
       
@@ -150,7 +150,7 @@ signOut(auth)
       
       <div className="relative group">
     
-      <Link >
+      <Link to='/profileData'>
         <img className="w-10 h-10 rounded mr-2" 
         src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="" />
     </Link>
@@ -185,7 +185,24 @@ signOut(auth)
       </div>
      </div>
 
-     <div className={`sm:hidden mt-16 ml-5 ${show && 'hidden'}`}>
+
+     {showSearch ? (<div className="sm:hidden mt-20">
+    <div>
+      <input type="text" placeholder='Search for a show, movie.'
+      className="bg-gray-300 h-10 p-2 pl-20 relative text-xl w-screen
+      font-bold focus:outline-none rounded" value={searchText}
+       onChange={handleChange}/>
+  </div>
+      
+      <div onClick={hideSearch} className="absolute text-xl m-2 bottom-0 pl-7">
+        <FaSearch className="text-2xl"/>
+        </div>
+     { 
+     searchText !== '' && (<div className="absolute right-2 text-2xl m-1 bottom-0 font-bold">
+     <button onClick={handleClick}>X</button> </div>)
+     } 
+      </div>) : (
+        <div className={`sm:hidden mt-16 ml-5 ${show && 'hidden'}`}>
         <ul className="flex gap-10 items-center mt-2 font-bold text-white text-2xl">
           
 
@@ -207,6 +224,9 @@ signOut(auth)
          
         </ul>
       </div>
+      )}
+      
+     
      
       
     

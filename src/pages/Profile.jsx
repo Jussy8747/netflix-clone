@@ -80,7 +80,7 @@ const Profile = () => {
                   <img className="hover:border-2 rounded h-28 w-28 sm:h-52 sm:w-52 object-contain"
                   src={item.img} alt="" onClick={()=>{
                     handleNav(item.name)
-                    nav(`${item.name}` == 'Kids' ? '/kids' : '/mainpage')
+                    nav(`${item.name}` == 'Kids' ? '/kids' : `/mainpage`)
 }}/>
                   </div>
                   <p className='font-medium'>{item.name}</p>
