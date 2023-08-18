@@ -2,10 +2,13 @@
 import Banner from '../components/Banner'
 import Navbar from '../components/Navbar'
 import Slides from '../components/Slides'
+import {useEffect} from 'react'
+import { getAuth } from 'firebase/auth'
+import { useNavigate } from 'react-router-dom'
 
 const Tvshow = () => {
   const API_KEY = import.meta.env.VITE_API_KEY
-
+  const nav = useNavigate()
 const Request ={
   fetchTrending: `/trending/tv/week?api_key=${API_KEY}&language=en-US`,
   fetchPopularTv: `/tv/popular?api_key=${API_KEY}&language=en-us`,
@@ -22,6 +25,12 @@ const Request ={
   fetchKdrama: `/search/tv?api_key=${API_KEY}&query=K-drama&language=ko`,
 }
  
+useEffect(()=>{
+  const auth = getAuth()
+  if(!auth.currentUser){
+      nav('/')
+  }
+},[])
   return (
     <div className='bg-black h-full pb-4'>
         <Navbar/>

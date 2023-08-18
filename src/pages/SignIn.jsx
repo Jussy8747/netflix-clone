@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from 'react'
+import { useContext, useRef, useState, useEffect } from 'react'
 import '../css/SignIn.css'
 import {Link, useNavigate} from 'react-router-dom'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
@@ -49,11 +49,17 @@ setLoading(true)
    
   setLoading(false)
 }
-return  loading ? <Loading/> :
 
-  (
-   
-    <div className="bg h-screen bg-black">
+
+useEffect(()=>{
+  const auth = getAuth()
+  if(auth.currentUser){
+      nav('/profile')
+  }
+},[])
+
+return (
+ <div className="bg h-screen bg-black">
        <ToastContainer />
         <div className='font-bold '>
             <h1 className='text p-4 text-2xl sm:text-5xl'>NETFLIX</h1>
@@ -77,10 +83,14 @@ return  loading ? <Loading/> :
           sm:mx-auto bg-white
            sm:bg-gray-500 w-80 sm:w-96' placeholder='Enter Password' />
     
-       
+       {loading ? <Loading/> :
         
         <button onClick={clicked} className=' my-5 sm:my-3 h-12 rounded  sm:mx-auto 
-           input w-80 sm:w-96 font-bold text-white text-lg p-3 bg-red-700'>Sign In</button>
+           input w-80 sm:w-96 font-bold text-white text-lg p-3 bg-red-700'>
+            Sign In
+        </button>
+         }
+
           </form>
         
         </div>

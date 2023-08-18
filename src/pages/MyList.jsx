@@ -1,17 +1,26 @@
-import { useContext} from "react";
+import { useContext, useEffect} from "react";
 import mainpageContext from "../context/MainPageContext";
 import Loading from "../components/Loading";
-
+import { getAuth } from 'firebase/auth'
+import { useNavigate } from 'react-router-dom'
 const MyList = () => {
 
+  const nav = useNavigate()
 
 const {
   mylist,
-  loading
+  loading,
+  getMyList
 } = useContext(mainpageContext)
 
 
-
+useEffect(()=>{
+  getMyList()
+  const auth = getAuth()
+    if(!auth.currentUser){
+        nav('/')
+    }
+},[])
 
 
   return (

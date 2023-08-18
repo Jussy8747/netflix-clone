@@ -71,7 +71,8 @@ const Banner = ({banner}) => {
       <div onClick={addToList} className=" bg-transparent text-white text-xl h-12
       rounded  mr-5">
           <h1 className="text-center text-4xl">+</h1> 
-          <p>My list</p></div>
+          <p>My list</p>
+          </div>
       <button className="bg-white w-32 text-black 
         items-center flex justify-center text-xl h-12
         rounded  hover:bg-gray-300 mt-4

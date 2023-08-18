@@ -20,10 +20,16 @@ const ProfileData = () => {
 const navigate = ()=>{
   nav('/mainpage')
  }
+ const auth = getAuth()
+ let userName = auth.currentUser.email
+console.log(userName);
 
   useEffect(()=>{
     getProfiles()
-   
+    const auth = getAuth()
+    if(!auth.currentUser){
+        nav('/')
+    }
   }, [])
 
   const HandleSignOut = async ()=>{
@@ -86,7 +92,7 @@ const navigate = ()=>{
                 onClick={HandleSignOut}>
                     Sign Out</p>
             </div>
-       
+       <p className="text-white text-right text-2xl pt-5 pr-3">{userName}</p>
         </div>
     </div>
     

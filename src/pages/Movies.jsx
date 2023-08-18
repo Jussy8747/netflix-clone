@@ -1,11 +1,13 @@
-import React from 'react'
+import {useEffect} from 'react'
+import { getAuth } from 'firebase/auth'
+import { useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Banner from '../components/Banner'
 import Slides from '../components/Slides'
 const Movies = () => {
 
   const API_KEY = import.meta.env.VITE_API_KEY
-
+  const nav = useNavigate()
   const Request ={
     fetchTrending: `/trending/movie/week?api_key=${API_KEY}&language=en-US`,
     fetchNetflixOriginal: `/discover/tv?api_key=${API_KEY}&with_network=213`,
@@ -26,6 +28,13 @@ const Movies = () => {
     fetchScienceFictionMovies: `/discover/movie?api_key=${API_KEY}&with_genres=878`,
   }
 
+
+  useEffect(()=>{
+    const auth = getAuth()
+    if(!auth.currentUser){
+        nav('/')
+    }
+},[])
   return (
     <div className='bg-black h-full pb-4'>
         <Navbar/>

@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom"
 import '../css/SignIn.css'
-import { useState, useRef, useContext } from "react"
+import { useState, useRef, useContext, useEffect } from "react"
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { db } from "../Firebase.config";
 import { setDoc, addDoc, collection, doc } from "firebase/firestore";
@@ -25,6 +25,7 @@ const onchange = ()=>{
   })
   
   }
+  const nav = useNavigate()
   
   const {email, password} = text
  
@@ -64,6 +65,13 @@ data.timestamp = date
 }
 setLoading(false)
 }
+
+useEffect(()=>{
+  const auth = getAuth()
+  if(auth.currentUser){
+      nav('/profile')
+  }
+},[])
 
 
   return loading ? <Loading/> :(

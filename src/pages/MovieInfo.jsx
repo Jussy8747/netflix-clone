@@ -1,13 +1,27 @@
 import { FaPlay, FaDownload } from 'react-icons/fa';
 import mainpageContext from '../context/MainPageContext';
-import {useContext} from 'react'
+import {useContext, useEffect} from 'react'
+import { getAuth } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 const MovieInfo = () => {
-
+  const nav = useNavigate()
   const {movieDetails, addToList}= useContext(mainpageContext)
 
 const {title, name, backdrop_path, poster_path, original_name, first_air_date, overview} = movieDetails
+
+useEffect(()=>{
+  const auth = getAuth()
+  if(!auth.currentUser){
+      nav('/')
+  }
+},[])
+
+
+
   return (
-    <div className='bg-black  h-full'>
+    <div className='bg-black h-screen overflow-auto'>
+      <ToastContainer />
         <div style={{
         backgroundImage: `url("https://image.tmdb.org/t/p/original${backdrop_path || poster_path}")`,
         backgroundPosition: 'center center',

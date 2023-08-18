@@ -1,11 +1,12 @@
 import { createContext, useEffect } from "react";
 import { useState } from "react";
 import axios from 'axios'
-import { addDoc, collection, documentId, getDocs } from 'firebase/firestore';
+import { addDoc, collection, documentId, getDocs, deleteDoc } from 'firebase/firestore';
 import { db } from "../Firebase.config";
 import { getAuth } from "firebase/auth";
 import {  doc, query, where,} from 'firebase/firestore'
 import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
 
 
 
@@ -147,9 +148,8 @@ const handleChange = (e) =>{
     
 
 
-    const addToList =async(e)=>{
-      
-        e.preventDefault()
+    const addToList =async()=>{
+        setLoading(true)
         const auth = getAuth()
        let documentId
         try {
@@ -161,24 +161,25 @@ const handleChange = (e) =>{
 
                     if(auth.currentUser.uid == docSnapshot.data().userRef){
                         documentId = docSnapshot.id;  
-                        console.log(docSnapshot.id);
                     }
                 });
               } 
-console.log(documentId);
               const docRef = doc(db, 'profiles', documentId,)
               const myListCollectionRef = collection(docRef, 'myList')
 
+           
+             
+              
               if(auth.currentUser.uid ){
                 addDoc(myListCollectionRef, {
                     ...movie,
                     itemRef: documentId
                 })
   .then((docRef) => {
-    console.log('New item added to the list with ID:', docRef.id);
+    toast.success('New item added to the list');
   })
   .catch((error) => {
-    console.error('Error adding item to the list:', error);
+   toast.error('Error adding item to the list:', error);
   });
               }
             
@@ -186,8 +187,10 @@ console.log(documentId);
         } catch (error) {
           console.log(error);  
         }
-       
+        setLoading(false)
     }
+
+    
 
 
 const getMyList = async ()=>{

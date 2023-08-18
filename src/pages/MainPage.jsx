@@ -1,4 +1,6 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
+import { getAuth } from "firebase/auth"
+import { useNavigate } from "react-router-dom"
 import Banner from "../components/Banner"
 import Navbar from "../components/Navbar"
 import Slides from "../components/Slides"
@@ -7,6 +9,7 @@ import mainpageContext from "../context/MainPageContext"
 import Search from "../components/Search"
 const MainPage = () => {
 
+  const nav = useNavigate()
 
   const API_KEY = import.meta.env.VITE_API_KEY
   const Request = {
@@ -41,6 +44,13 @@ const MainPage = () => {
       fetchKdrama: `/search/tv?api_key=${API_KEY}&query=K-drama&language=ko`,
   }
   const {showSearch} = useContext(mainpageContext)
+
+  useEffect(()=>{
+    const auth = getAuth()
+    if(!auth.currentUser){
+        nav('/')
+    }
+},[])
 
   return (
    

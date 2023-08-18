@@ -1,6 +1,6 @@
-
+import { getAuth } from "firebase/auth";
 import '../css/Home.css'
-import {  useState } from 'react'
+import {  useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 
@@ -11,6 +11,14 @@ const nav = useNavigate()
         nav('/signup')
     }
 
+
+    useEffect(()=>{
+        const auth = getAuth()
+        if(auth.currentUser){
+            nav('/profile')
+        }
+    },[])
+    
   return (
    
     <div className='h-screen '>
