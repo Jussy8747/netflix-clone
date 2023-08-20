@@ -25,7 +25,6 @@ function App() {
         <Route path="/mylist" element={<MyList/>}/>
         <Route path="/movies" element={<Movies/>}/>
         <Route path="/tvshows" element={<Tvshow/>}/>
-        <Route path="/newandpopular" element={<NewAndPopular/>}/>
         <Route path="/kids" element={<Kids/>}/>
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/video" element={<MovieInfo/>}/>
